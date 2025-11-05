@@ -1,4 +1,4 @@
-[![nothrow banner](https://imgur.com/a/lRGbD6C)](https://github.com/Ehrelein/nothrow?tab=readme-ov-file)
+[![nothrow banner](https://imgur.com/DcE3MIk.png)](https://github.com/Ehrelein/nothrow?tab=readme-ov-file)
 [View on GitHub](https://github.com/Ehrelein/nothrow?tab=readme-ov-file)
 
 ## Usage
