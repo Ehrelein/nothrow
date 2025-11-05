@@ -1,3 +1,5 @@
 .gitignore
 read.ts
 tsconfig.json
+lib.ts
+package-lock.json
