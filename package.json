@@ -2,14 +2,28 @@
     "name": "@ehrelein/nothrow",
     "version": "1.0.0",
     "description": "Type-safe error handling",
-    "main": "dist/lib.js",
+    "main": "dist/lib.cjs",
+    "module": "dist/lib.mjs",
     "types": "dist/lib.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/lib.d.ts",
+            "import": "./dist/lib.mjs",
+            "require": "./dist/lib.cjs",
+            "default": "./dist/lib.mjs"
+        }
+    },
     "files": [
         "dist",
-        "README.md"
+        "README.md",
+        "LICENSE"
     ],
+    "sideEffects": false,
+    "engines": {
+        "node": ">=18"
+    },
     "scripts": {
-        "build": "tsc",
+        "build": "tsup --config tsup.config.ts",
         "prepublishOnly": "npm run build"
     },
     "keywords": [
@@ -20,10 +34,14 @@
         "safe-call",
         "monad"
     ],
-    "author": "",
+    "author": "Ehrelein",
     "license": "MIT",
     "devDependencies": {
+        "tsup": "^8.0.0",
         "typescript": "^5.0.0"
+    },
+    "publishConfig": {
+        "access": "public"
     },
     "repository": {
         "type": "git",
