@@ -27,6 +27,10 @@
     },
     "repository": {
         "type": "git",
-        "url": ""
-    }
+        "url": "git+https://github.com/Ehrelein/nothrow.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Ehrelein/nothrow/issues"
+    },
+    "homepage": "https://github.com/Ehrelein/nothrow#readme"
 }
