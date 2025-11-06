@@ -4,7 +4,7 @@
 ## Usage
 
 ```typescript
-let file = safeCall(readFileSync, "test.txt") // <-- calls any function, works with acync await
+let file = safeCall(readFileSync, "test.txt") // <-- calls any function
 let wrapperReadFile = wrap(readFile) // <-- wraps any function
 
 log(file.value) // <-- error, no value field in file yet
