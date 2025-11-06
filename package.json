@@ -1,6 +1,6 @@
 {
     "name": "@ehrelein/nothrow",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Type-safe error handling",
     "main": "dist/lib.cjs",
     "module": "dist/lib.mjs",
