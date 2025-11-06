@@ -21,7 +21,7 @@ interface ErrResult<T> extends Helper<T> {
     readonly error: Error
 }
 
-export type Result<T> = OkResult<T> | ErrResult<T>
+type Result<T> = OkResult<T> | ErrResult<T>
 
 export function Ok<T>(value: T): Result<T> {
     return {
@@ -126,3 +126,6 @@ export function wrap<TArgs extends unknown[], TReturn>(
         | ((...args: TArgs) => Result<TReturn>)
         | ((...args: TArgs) => Promise<Result<Awaited<TReturn>>>)
 }
+
+
+export type { Result }
