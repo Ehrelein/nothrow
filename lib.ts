@@ -23,7 +23,7 @@ interface ErrResult<T> extends Helper<T> {
 
 type Result<T> = OkResult<T> | ErrResult<T>
 
-export function Ok<T>(value: T): Result<T> {
+function Ok<T>(value: T): Result<T> {
     return {
         ok: true as const,
         invert: null,
@@ -47,7 +47,7 @@ export function Ok<T>(value: T): Result<T> {
     }
 }
 
-export function Err(error: Error | string): Result<never> {
+function Err(error: Error | string): Result<never> {
     const err = error instanceof Error ? error : new Error(error)
     const uni = error instanceof Error ? error.message : error
     return {
@@ -68,17 +68,17 @@ export function Err(error: Error | string): Result<never> {
     }
 }
 
-export function safeCall<TArgs extends unknown[], TReturn>(
+function safeCall<TArgs extends unknown[], TReturn>(
     fn: (...args: TArgs) => Promise<TReturn>,
     ...args: TArgs
 ): Promise<Result<Awaited<TReturn>>>
 
-export function safeCall<TArgs extends unknown[], TReturn>(
+function safeCall<TArgs extends unknown[], TReturn>(
     fn: (...args: TArgs) => TReturn,
     ...args: TArgs
 ): Result<TReturn>
 
-export function safeCall<TArgs extends unknown[], TReturn>(
+function safeCall<TArgs extends unknown[], TReturn>(
     fn: (...args: TArgs) => TReturn | Promise<TReturn>,
     ...args: TArgs
 ) {
@@ -97,15 +97,15 @@ export function safeCall<TArgs extends unknown[], TReturn>(
     }
 }
 
-export function wrap<TArgs extends unknown[], TReturn>(
+function wrap<TArgs extends unknown[], TReturn>(
     fn: (...args: TArgs) => Promise<TReturn>
 ): (...args: TArgs) => Promise<Result<Awaited<TReturn>>>
 
-export function wrap<TArgs extends unknown[], TReturn>(
+function wrap<TArgs extends unknown[], TReturn>(
     fn: (...args: TArgs) => TReturn
 ): (...args: TArgs) => Result<TReturn>
 
-export function wrap<TArgs extends unknown[], TReturn>(
+function wrap<TArgs extends unknown[], TReturn>(
     fn: (...args: TArgs) => TReturn | Promise<TReturn>
 ) {
     return ((...args: TArgs) => {
@@ -127,5 +127,5 @@ export function wrap<TArgs extends unknown[], TReturn>(
         | ((...args: TArgs) => Promise<Result<Awaited<TReturn>>>)
 }
 
-
 export type { Result }
+export { Err, Ok, safeCall, wrap }
